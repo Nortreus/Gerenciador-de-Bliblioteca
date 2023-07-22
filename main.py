@@ -1,9 +1,6 @@
-from model.Tema import Tema
+from model.tema import Tema
+from cursor import conexao
 
-obj1 = Tema('acao')
-objs2 = Tema(2)
-obj3 = Tema("comedia")
+cursor = conexao()
 
-print(obj1._codigo)
-print(objs2._codigo)
-print(obj3._codigo)
+print(cursor.is_connected())

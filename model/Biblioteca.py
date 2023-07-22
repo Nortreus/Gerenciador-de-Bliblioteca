@@ -1,8 +1,15 @@
 class Biblioteca:
-    _codigo = 0
     def __init__(self,nome, responsavel):
-        Biblioteca._codigo +=1
-        self._codigo = Biblioteca._codigo
         self._nome = nome
         self._livro = []
         self._responsavel = responsavel
+        
+    def adicionar_livro(self, livro):
+        if livro not in self._livro:
+            self._livro.append(livro)
+    
+    def remover_livro(self, livro):
+        if livro in self._livro:
+            self._livro.remove(livro)
+        
+        
