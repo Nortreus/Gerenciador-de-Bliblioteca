@@ -8,11 +8,12 @@ def conexao():
     database='GerenciadorBiblioteca'
     )
     
-def buscar(srt):
+def buscar(dados,tabela):
     x = conexao()
     print(x.is_connected())
     y = x.cursor()
-    y.execute(srt)
+    query = f'select {dados} from {tabela} ;'
+    y.execute(query)
     t = y.fetchall()
     y.close()
     x.close()
