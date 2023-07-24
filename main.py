@@ -1,6 +1,14 @@
 from model.tema import Tema
-from cursor import conexao
+import cursor as cs
 
-cursor = conexao()
 
-print(cursor.is_connected())
+resultados = cs.buscar("SELECT * FROM gerenciadorbiblioteca.biblioteca;")
+
+# Exibe os resultados
+for registro in resultados:
+    print(registro)
+    
+    
+
+
+

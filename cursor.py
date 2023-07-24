@@ -8,4 +8,32 @@ def conexao():
     database='GerenciadorBiblioteca'
     )
     
+def buscar(srt):
+    x = conexao()
+    print(x.is_connected())
+    y = x.cursor()
+    y.execute(srt)
+    t = y.fetchall()
+    y.close()
+    x.close()
+    return t
+
+def inserir(tabela,**dados):
+    x = conexao()
+    print(x.is_connected())
+    y = x.cursor()
+    colunas = ' ,'.join(dados.keys())
+    valores = ' ,'.join(['%s']* len(dados))
+    query = f"insert into {tabela} ({colunas}) values ({valores})"
+    y.execute(query, tuple(dados.values()))
+    x.commit()
+    y.close()
+    x.close()
+
+
+    
+    
+    
+    
+    
 
